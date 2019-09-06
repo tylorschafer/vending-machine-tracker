@@ -12,17 +12,19 @@ describe 'Snack Show page' do
     @machine.snacks << @snack_2
     @machine_2.snacks << @snack_1
     @machine_2.snacks << @snack_3
+    @machines = [@machine, @machine_2]
   end
   it "shows all info about that snack" do
     visit snack_path(@snack_1)
 
     expect(page).to have_content("Name: #{@snack_1.name}")
     expect(page).to have_content("Price: $#{@snack_1.price}")
-    expect(page).to have_content(
-      "Vending Locations:\n#{@machine.location} (2 kinds of snacks, average price of $#{@machine.average_snack_price}"
-    )
-    expect(page).to have_content(
-      "#{@machine_2.location} (2 kinds of snacks, average price of $#{@machine_2.average_snack_price}"
-    )
+    expect(page).to have_content("Vending Locations:")
+
+    @machines.each do |machine|
+      within "#machine-#{machine.id}" do
+        expect(page).to have_content("#{machine.location} (#{machine.snacks_count} kinds of snacks, average price of $#{machine.average_snack_price})")
+      end
+    end
   end
 end

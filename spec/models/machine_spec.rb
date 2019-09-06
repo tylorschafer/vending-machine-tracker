@@ -17,8 +17,13 @@ RSpec.describe Machine, type: :model do
       @machine.snacks << @snack_1
       @machine.snacks << @snack_2
     end
+
     it "#average_snack_price will average the price of all snacks in machine" do
       expect(@machine.average_snack_price).to eq(1.5)
+    end
+
+    it "#snack_count will return the count of snack types in that machine" do
+      expect(@machine.snacks_count).to eq(2)
     end
   end
 end

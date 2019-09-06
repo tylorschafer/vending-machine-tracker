@@ -3,4 +3,5 @@ class Snack < ApplicationRecord
 
   has_many :vending_snacks
   has_many :machines, through: :vending_snacks
+
 end

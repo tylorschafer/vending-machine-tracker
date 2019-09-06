@@ -3,6 +3,6 @@
 <p>Vending Locations:</p>
 <ul>
   <% @snack.machines.each do |machine| %>
-      <li><%= machine.location %> (<%= machine.snacks.count %> kinds of snacks, average price of $<%= machine.average_snack_price %>)</li>
+      <li id = "machine-<%=machine.id%>"><%= machine.location %> (<%= machine.snacks_count %> kinds of snacks, average price of $<%= machine.average_snack_price %>)</li>
   <% end %>
 </ul>
