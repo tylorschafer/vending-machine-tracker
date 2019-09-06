@@ -19,7 +19,6 @@ describe 'Snack Show page' do
     expect(page).to have_content("Name: #{@snack_1.name}")
     expect(page).to have_content("Price: $#{@snack_1.price}")
     expect(page).to have_content(
-      "Vending Locations:\n#{@machine.location} (2 kinds of snack, average price of #{@machine.average_snack_price})\n
-      #{@machine_2.location} (2 kinds of snacks, average price of $#{@machine_2.average_snack_price})")
+      "Vending Locations:\n#{@machine.location} (2 kinds of snacks, average price of $#{@machine.average_snack_price}) #{@machine_2.location} (2 kinds of snacks, average price of $#{@machine_2.average_snack_price})")
   end
 end
